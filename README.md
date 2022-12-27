@@ -35,3 +35,5 @@ See the [CONTRIBUTING](CONTRIBUTING.md) file for how to help out.
 ISC2021 is [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) licensed, as found in the LICENSE file.
 
 The majority of ISC2021 is licensed under CC-BY-NC, however portions of the project are available under separate license terms: lear_gist1.2  is licensed under the PSF license.
+=======
+# isc2021
