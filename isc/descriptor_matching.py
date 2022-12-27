@@ -38,7 +38,7 @@ def threshold_radius_nres_IP(nres, dis, ids, thresh):
     return new_nres, dis[mask], ids[mask]
 
 
-def apply_maxres_IP(res_batches, target_nres):
+def apply_maxres_IP(res_batches, target_nres, keep_max=False):
     """find radius that reduces number of results to target_nres, and
     applies it in-place to the result batches used in range_search_max_results"""
     alldis = np.hstack([dis for _, dis, _ in res_batches])
@@ -74,7 +74,6 @@ def search_with_capped_res(xq, xb, num_results, metric=faiss.METRIC_L2):
         # not support IP search correctly. Do not use in a multithreaded env.
         apply_maxres_saved = exhaustive_search.apply_maxres
         exhaustive_search.apply_maxres = apply_maxres_IP
-
     radius, lims, dis, ids = exhaustive_search.range_search_max_results(
         index, query_iterator(xq),
         1e10 if metric == faiss.METRIC_L2 else -1e10,      # initial radius does not filter anything

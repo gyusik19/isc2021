@@ -97,7 +97,7 @@ def main():
     def aa(*args, **kwargs):
         group.add_argument(*args, **kwargs)
 
-
+    torch.multiprocessing.set_sharing_strategy('file_system')
 
     group = parser.add_argument_group('feature extraction options')
     aa('--transpose', default=-1, type=int, help="one of the 7 PIL transpose options ")
